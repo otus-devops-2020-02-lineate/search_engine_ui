@@ -126,7 +126,7 @@ review:
         name="$name-$track"
       fi
     - echo "Clone deploy repository..."
-    - git clone http://gitlab-gitlab/$CI_PROJECT_NAMESPACE/search_engine_infra.git
+    - git clone --branch feature/gitlab http://gitlab-gitlab/$CI_PROJECT_NAMESPACE/search_engine_infra.git
     - echo "Download helm dependencies..."
     - helm dep update search_engine_infra/charts/search-engine
     - echo "Deploy helm release $name to $KUBE_NAMESPACE"
