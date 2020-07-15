@@ -126,9 +126,9 @@ review:
         name="$name-$track"
       fi
     - echo "Clone deploy repository..."
-    - git clone --branch feature/gitlab http://gitlab-gitlab/$CI_PROJECT_NAMESPACE/search_engine_infra.git
+    - git clone http://gitlab-gitlab/$CI_PROJECT_NAMESPACE/search-engine-infra.git
     - echo "Download helm dependencies..."
-    - helm dep update search_engine_infra/charts/search-engine
+    - helm dep update search-engine-infra/charts/search-engine
     - echo "Deploy helm release $name to $KUBE_NAMESPACE"
     - echo "Upgrading existing release..."
     - >
@@ -140,7 +140,7 @@ review:
         --namespace="$KUBE_NAMESPACE" \
         --version="$CI_PIPELINE_ID-$CI_JOB_ID" \
         "$name" \
-        search_engine_infra/charts/search-engine/
+        search-engine-infra/charts/search-engine/
 
 stop_review:
   stage: cleanup
