@@ -88,7 +88,6 @@ review:
   variables:
     KUBE_NAMESPACE: review
     host: $CI_PROJECT_PATH_SLUG-$CI_COMMIT_REF_SLUG
-    TILLER_NAMESPACE: kube-system
     CI_APPLICATION_TAG: $CI_COMMIT_REF_SLUG
     name: $CI_ENVIRONMENT_SLUG
   environment:
