@@ -45,7 +45,11 @@ build:
 test:
   stage: test
   script:
-    - exit 0
+    - apt-get update -qy
+    - apt-get install -y python-dev python-pip
+    - pip install -r requirements.txt -r requirements-test.txt
+    - coverage run -m unittest discover -s tests/
+    - coverage report --include ui/ui.py
   only:
     - branches
 
